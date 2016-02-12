@@ -1,5 +1,6 @@
 ﻿using Given.Common;
 using Given.NUnit;
+using System.Diagnostics;
 
 namespace CodingChallenge.FamilyTree.Tests
 {
@@ -15,6 +16,7 @@ namespace CodingChallenge.FamilyTree.Tests
         [then]
         public void the_result_should_be_january()
         {
+            if (_result != "") Trace.Write("Result is " + _result); else Trace.Write("Result is empty");
             _result.ShouldEqual("January");
         }
     }
@@ -42,7 +44,7 @@ namespace CodingChallenge.FamilyTree.Tests
 
         given a_family_tree = () => _tree = FamilyTreeGenerator.Make();
 
-        when searching_the_tree_for_joes_birthday = () => _result = new Solution().GetBirthMonth(_tree, "Jeebus");
+        when searching_the_tree_for_joes_birthday = () => _result = new Solution().GetBirthMonth(_tree, "Jeebus"); // I lol'd
 
         [then]
         public void the_result_should_be_empty()
